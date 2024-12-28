@@ -1,0 +1,7 @@
+selenium
+undetected-chromedriver
+beautifulsoup4
+typing
+dataclasses
+schedule
+python-dotenv
