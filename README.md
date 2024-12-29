@@ -5,16 +5,15 @@
 ![Automation](https://img.shields.io/badge/automation-enabled-green)
 ![Stars](https://img.shields.io/github/stars/vibheksoni/AutoChatgpt?style=social)
 
-Your AI assistant on autopilot - A powerful automation framework for ChatGPT that simulates human-like interaction patterns. No API required!
+A Python framework for automating ChatGPT interactions with human-like behavior simulation. No API required!
 
-## ✨ Why AutoChatgpt?
+## ✨ Key Features
 
-- 🎯 **Full Automation**: Create autonomous ChatGPT workflows
-- 🤖 **Task Scheduling**: Run conversations on your schedule
-- 🔄 **Workflow Chains**: Connect multiple ChatGPT interactions
-- 🎮 **Smart Controls**: Fine-tune behavior and responses
-- 🚀 **Human Simulation**: Natural typing and interaction patterns
-- 📊 **Result Export**: Save conversations and analytics
+- 🎯 **Browser Automation**: Automated ChatGPT interactions through web interface
+- 🚀 **Human-Like Typing**: Configurable typing speeds and patterns
+- 🔄 **Message Handling**: Send messages and parse responses
+- 🎮 **Customizable Behavior**: Adjust typing speed, pauses, and error rates
+- 📝 **Response Parsing**: Extract and format conversation content
 
 ## 🚀 Installation
 
