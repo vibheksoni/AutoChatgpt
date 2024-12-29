@@ -28,6 +28,9 @@ class ChatGPTClient:
         self.options = ChromeOptions()
         self.driver = Chrome(options=self.options)
         self.init_session()
+    
+    def __del__(self) -> None:
+        self.driver.quit()
 
     def setup_logging(self, log_level: Union[int, None], log_file: str) -> None:
         """
