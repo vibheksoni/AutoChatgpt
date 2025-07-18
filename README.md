@@ -1,31 +1,28 @@
-# 🤖 AutoChatgpt
+# AutoChatgpt
 
-![License](https://img.shields.io/badge/license-MIT-blue)
-![Python](https://img.shields.io/badge/python-3.8%2B-blue)
-![Automation](https://img.shields.io/badge/automation-enabled-green)
-![Stars](https://img.shields.io/github/stars/vibheksoni/AutoChatgpt?style=social)
+![License](https://img.shields.io/badge/license-MIT-blue) ![Python](https://img.shields.io/badge/python-3.8%2B-blue) ![Automation](https://img.shields.io/badge/automation-enabled-green) ![Stars](https://img.shields.io/github/stars/vibheksoni/AutoChatgpt?style=social)
 
 A Python framework for automating ChatGPT interactions with human-like behavior simulation. No API required!
 
-## ✨ Key Features
+## Key Features
 
-- 🎯 **Browser Automation**: Automated ChatGPT interactions through web interface
-- 🚀 **Human-Like Typing**: Configurable typing speeds and patterns
-- 🔄 **Message Handling**: Send messages and parse responses
-- 🎮 **Customizable Behavior**: Adjust typing speed, pauses, and error rates
-- 📝 **Response Parsing**: Extract and format conversation content
+- **Browser Automation**: Automated ChatGPT interactions through web interface
+- **Human-Like Typing**: Configurable typing speeds and patterns
+- **Message Handling**: Send messages and parse responses
+- **Customizable Behavior**: Adjust typing speed, pauses, and error rates
+- **Response Parsing**: Extract and format conversation content
 
-## 🚀 Installation
+## Installation
 
 ```bash
-# Clone the repository
 git clone https://github.com/vibheksoni/AutoChatgpt.git
+cd AutoChatgpt
 
 # Install dependencies
 pip install -r requirements.txt
 ```
 
-## 🎯 Quick Start
+## Quick Start
 
 ```python
 from gpt import ChatGPTClient
@@ -42,7 +39,7 @@ for msg in messages:
     print(f"{msg.role}: {msg.content}")
 ```
 
-## 🎨 Features
+## Features
 
 ### Human-Like Typing Simulation
 ```python
@@ -80,7 +77,7 @@ while True:
     client.send_message(user_input)
 ```
 
-## 📚 Examples
+## Examples
 
 The [examples](examples/) directory contains automation scenarios:
 - `basic_chat.py`: Simple automated interactions
@@ -88,7 +85,7 @@ The [examples](examples/) directory contains automation scenarios:
 - `conversation_loop.py`: Continuous chat automation
 - `code_generation.py`: Automated code generation
 
-## 🛡️ Error Handling
+## Error Handling
 
 The framework includes comprehensive error handling for:
 - Network issues
@@ -97,7 +94,7 @@ The framework includes comprehensive error handling for:
 - Session management
 - Response timeouts
 
-## 🤝 Contributing
+## Contributing
 
 Contributions are what make the open source community amazing! Any contributions you make are **greatly appreciated**.
 
@@ -107,26 +104,35 @@ Contributions are what make the open source community amazing! Any contributions
 4. Push to the Branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
-## ⭐ Show Your Support
+## Show Your Support
 
 If you find this project useful, please consider giving it a star! It helps others discover this tool and motivates continued development.
 
 [![GitHub Star](https://img.shields.io/github/stars/vibheksoni/AutoChatgpt?style=social)](https://github.com/vibheksoni/AutoChatgpt)
 
-## 📝 License
+## License
 
 Distributed under the MIT License. See `LICENSE` for more information.
 
-## 👨‍💻 Author
+## Author
 
-**Vibhek Soni** - [@vibheksoni](https://github.com/vibheksoni)
+**Vibhek Soni** - Backend Developer & Security Engineer
 
+- **GitHub**: [@vibheksoni](https://github.com/vibheksoni)
+- **Website**: [vibhek.com](https://vibhek.com/)
+- **Security Blog**: [insecuremind.xyz](https://insecuremind.xyz/)
+- **Social Links**: [vibhek.com/socials](https://vibhek.com/socials)
+
+### Need Development Work?
+If you need custom development, security consulting, or have a project in mind, feel free to reach out through my contact page: [vibhek.com/contact](https://vibhek.com/contact)
+
+### Support This Project
 If you like this project, please consider:
-- ⭐ Starring the repository
-- 🐦 Following me on GitHub
-- 🍴 Forking the project
+- Starring the repository
+- Following me on GitHub
+- Forking the project
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 - Thanks to all contributors who help improve this project
 - Special thanks to the open-source community

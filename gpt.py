@@ -14,8 +14,8 @@ from dataclasses import dataclass
 
 @dataclass
 class Message:
-    role: str
-    content: str
+    role    : str
+    content : str
 
 class ChatGPTClient:
     def __init__(self, log_level: Union[int, None] = logging.INFO, log_file: str = "chatgpt.log") -> None:
@@ -26,7 +26,7 @@ class ChatGPTClient:
         """
         self.setup_logging(log_level, log_file)
         self.options = ChromeOptions()
-        self.driver = Chrome(options=self.options)
+        self.driver  = Chrome(options=self.options)
         self.init_session()
     
     def __del__(self) -> None:
@@ -78,16 +78,16 @@ class ChatGPTClient:
             start_time = time.time()
             while time.time() - start_time < timeout:
                 try:
-                    self.driver.find_element(By.CSS_SELECTOR, "button[aria-label='Stop streaming']")
+                    stop_button = self.driver.find_element(By.CSS_SELECTOR, "button[data-testid='stop-button']")
                     time.sleep(0.5)
-                    continue
                 except:
+                    time.sleep(1)n
+                    # This is to just ensure the button is not there
                     try:
-                        self.driver.find_element(By.CSS_SELECTOR, "button[data-testid='send-button']")
-                        time.sleep(2)
-                        return True
+                        self.driver.find_element(By.CSS_SELECTOR, "button[data-testid='stop-button']")
                     except:
-                        time.sleep(0.5)
+                        return True
+                    continue
             
             self.log(logging.WARNING, "Response timeout reached")
             return False
@@ -267,11 +267,11 @@ class ChatGPTClient:
         """
         try:
             if '/auth/login' in self.driver.current_url:
-                try_first = WebDriverWait(self.driver, 5).until(
-                    EC.presence_of_element_located((By.CSS_SELECTOR, 
-                        "button.btn.btn-ghost div.flex.items-center"))
+                try_first_button = WebDriverWait(self.driver, 5).until(
+                    EC.presence_of_element_located((By.XPATH, 
+                        "//button[contains(@class, 'btn-ghost')]//div[contains(text(), 'Try it first')]"))
                 )
-                try_first.click()
+                try_first_button.click()
                 
                 WebDriverWait(self.driver, 5).until(
                     lambda x: 'https://chatgpt.com/' == self.driver.current_url)
@@ -283,3 +283,58 @@ class ChatGPTClient:
         except Exception as e:
             self.log(logging.ERROR, f"Error on login page: {str(e)}")
             return False
+
+
+def main():
+    """
+    Main entry point for the autochatgpt console script.
+    Provides a simple interactive chat interface.
+    """
+    print("AutoChatGPT Interactive Console")
+    print("Type 'quit' to exit")
+    print("-" * 30)
+    
+    try:
+        client = ChatGPTClient()
+        print("ChatGPT client initialized successfully!")
+        
+        while True:
+            user_input = input("\nYou: ").strip()
+            
+            if user_input.lower() in ['quit', 'exit', 'q']:
+                print("Goodbye!")
+                break
+                
+            if not user_input:
+                continue
+                
+            print("Sending message...")
+            success = client.send_message(user_input)
+            
+            if success:
+                print("Message sent! Getting response...")
+                messages = client.get_messages()
+                if messages:
+                    last_message = messages[-1]
+                    if last_message.role == "assistant":
+                        print(f"\nChatGPT: {last_message.content}")
+                    else:
+                        print("Waiting for response...")
+                else:
+                    print("No response received.")
+            else:
+                print("Failed to send message.")
+                
+    except KeyboardInterrupt:
+        print("\nInterrupted by user. Goodbye!")
+    except Exception as e:
+        print(f"Error: {str(e)}")
+    finally:
+        try:
+            client.driver.quit()
+        except:
+            pass
+
+
+if __name__ == "__main__":
+    main()
